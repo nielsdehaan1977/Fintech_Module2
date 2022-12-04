@@ -1,0 +1,117 @@
+    1  git config --global user.name "nielsdehaan"
+    2  $ git config --global user.name
+    3  git config --global user.name
+    4  git config --global user.email "nlsdhn@gmail.com"
+    5  git config --global user.email
+    6  ls -al ~/.shh
+    7  ls -al ~/.ssh
+    8  ssh-keygen -t rsa -b 4096 -C "nlsdhn@gmail.com"
+    9  eval "$(ssh-agent -s)"
+   10  ssh-add ~/.ssh/id_rsa
+   11  clip < ~/.shh/id_ras.pub
+   12  clip < ~/.shh/id_rsa.pub
+   13  clip < ~/.ssh/id_rsa.pub
+   14  ssh -T git@github.com
+   15  ssh -T git@github.com
+   16  clip < ~/.ssh/id_rsa.pub
+   17  ssh -T git@github.com
+   18  conda --version
+   19  conda --version
+   20  conda update conda
+   21  conda --version
+   22  conda activate deve
+   23  conda activate dev
+   24  --envs
+   25  conda info --envs
+   26  C:\Users\niels\anaconda3 conda activate dev
+   27  /anaconda3 conda activate dev
+   28  anaconda3 conda activate dev
+   29  cd
+   30  cd ~/anaconda3/
+   31  conda activate dev
+   32  cd ~/envs/dev
+   33  cd ~/envs/
+   34  cd ~/envs/dev/
+   35  cd ~/envs/
+   36  cd ~/envs/
+   37  cd ~/anaconda3/envs/dev/
+   38  conda activate dev
+   39  cd ~/Scripts/
+   40  cd ~/anaconda3/envs/dev/Scripts/
+   41  conda activate dev
+   42  conda info --envs
+   43  conda init bash
+   44  conda activate dev
+   45  conda config --show envs_dirs
+   46  conda activate /anaconda3/envs/my_env
+   47  conda activate /anaconda3/envs/
+   48  cd ~/Users/niels/anaconda3/envs/dev/
+   49  cd ~/niels/anaconda3/envs/dev/
+   50  cd..
+   51  cd ..
+   52  cd ~/niels/anaconda3/envs/dev/
+   53  pwd
+   54  cd ~/niels/
+   55  cd ..
+   56  cd ~/users/niels/
+   57  cd ~/users
+   58  conda activate dev
+   59  cd ~/anaconda3/dev/
+   60  conda activate dev
+   61  cd desktop
+   62  cd github_upload
+   63  cd fintech_module2
+   64  cd loan_qualifier_app
+   65  python app.py
+   66  python app.py
+   67  python app.py
+   68  git status
+   69  git add -A
+   70  git commit -m "Working and tested application"
+   71  git status
+   72  git push
+   73  python app.py
+   74  python app.py
+   75  python app.py
+   76  python app.py
+   77  python app.py
+   78  python app.py
+   79  python app.py
+   80  python app.py
+   81  git status
+   82  git add -A
+   83  git status
+   84  git commit -m " changed questionary.text to questionry.confirm in def save_qualifying_loans as requested in challenge."
+   85  git status
+   86  git push
+   87  git push
+   88  python app.py
+   89  python app.py
+   90  git add -
+   91  git add -A
+   92  git commit -m "Minor language updates in questionary questions"
+   93  git status
+   94  git push
+   95  git status
+   96  git add -A
+   97  git status
+   98  git commit -m "Updated README.md file and added images folder to display CLI prompts"
+   99  git status
+  100  git push
+  101  git status
+  102  git add -A
+  103  git status
+  104  git commit -m "changed README.md file and move image to see if it can be displayed in github this way"
+  105  git status
+  106  git push
+  107  git status
+  108  git add -A
+  109  git commit -m "Updated README.md file with incorporated CLI screenshot."
+  110  git push
+  111  git status
+  112  git push
+  113  git pull
+  114  git status
+  115  git push
+  116  history 50 . terminal_history.txt
+  117  history > terminal_history.txt

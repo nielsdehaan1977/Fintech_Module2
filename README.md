@@ -60,7 +60,7 @@ if Y, application will prompt for
 * File Output Path
 * File Name 
 
-![Loan Qualifying Application CLI](images/loan_qualifying_app.png)
+![Loan Qualifying Application CLI](loan_qualifying_app.png)
 
 ---
 

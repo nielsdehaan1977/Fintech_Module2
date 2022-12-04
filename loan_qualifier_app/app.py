@@ -104,35 +104,41 @@ def save_qualifying_loans(qualifying_loans):
     Args:
         qualifying_loans (list of lists): The qualifying bank loans.
     """
-    # if there are no qualifying loans, print "No qualifying loans and exit"
+    # if there are no qualifying loans, print "No qualifying loans" and exit save qualifying loans 
     if len(qualifying_loans) == 0:
-        print("No Qualifying loans available, App will exit.")
+        print("No Qualifying loans available, App will exit. No file was saved. ")
         exit
     # if there are qualifying loans, ask if results need to be saved
     else:
         # Ask for saving file if there are qualifying results
-        save_file = questionary.text("There are qualifying loans available, would you like to save the results Yes or No?").ask()
+        save_file = questionary.text("There are qualifying loans available, would you like to save the results YES/NO?").ask()
         save_file = str.lower(save_file)
-        # print(save_file)
 
         # If user does not want to save files, exit
         if save_file != "yes":
+            # print whatever input user has given (if not yes) and highlight that app exited due to that. If user wants to save rerun process and answer yes when prompted. 
+            save_file = save_file.upper()
+            print(f"Input on previous YES/NO question was '{save_file}'.\
+                 \nTherefor app will exit, no file was saved by app.\
+                 \nPlease rerun application and type yes when prompted to save qualifying loan results.")
             exit
         # If user wants to save files, prompt where they would like to save the files
         else:
-            # Determine file path for new file
-            csvpath = questionary.text("Enter file path where to save the file:").ask()
+            # Determine folder path for new file to be saved in
+            csvpath = questionary.text("Enter folder path where to save the file:").ask()
+#            csvpath = "./" + csvpath + "/"
             csvpath = Path(csvpath)
             if not csvpath.exists():
                 sys.exit(f"Oops! Can't find this path: {csvpath}")
             
-            # Determin file name for qualifying loan list
+            # Determine file name for qualifying loan list
             file_name = questionary.text("Enter file name for qualifying loan list (No file extention necessary):").ask()
-            file_name = file_name +".csv"
-            # print(file_name)
+            file_name = file_name + ".csv"
+            
+            print(f"File will be available in folder: \{csvpath}\ with file name: {file_name}")
 
-            # Save file if user wants to save files
-            csvpath = Path(file_name)
+            # Save file if user wants to save files in determined location and with determined file name
+            csvpath = Path(csvpath, file_name)
             save_csv(csvpath, qualifying_loans)
         
 

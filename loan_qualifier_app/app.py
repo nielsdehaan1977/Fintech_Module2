@@ -24,7 +24,6 @@ from qualifier.filters.credit_score import filter_credit_score
 from qualifier.filters.debt_to_income import filter_debt_to_income
 from qualifier.filters.loan_to_value import filter_loan_to_value
 
-
 def load_bank_data():
     """Ask for the file path to the latest banking data and load the CSV file.
 
@@ -39,20 +38,18 @@ def load_bank_data():
 
     return load_csv(csvpath)
 
-
 def get_applicant_info():
     """Prompt dialog to get the applicant's financial information.
 
     Returns:
         Returns the applicant's financial information.
     """
-
     credit_score = questionary.text("What's your credit score?").ask()
     debt = questionary.text("What's your current amount of monthly debt?").ask()
     income = questionary.text("What's your total monthly income?").ask()
     loan_amount = questionary.text("What's your desired loan amount?").ask()
     home_value = questionary.text("What's your home value?").ask()
-
+    
     credit_score = int(credit_score)
     debt = float(debt)
     income = float(income)
@@ -60,7 +57,6 @@ def get_applicant_info():
     home_value = float(home_value)
 
     return credit_score, debt, income, loan_amount, home_value
-
 
 def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_value):
     """Determine which loans the user qualifies for.
@@ -108,14 +104,37 @@ def save_qualifying_loans(qualifying_loans):
     Args:
         qualifying_loans (list of lists): The qualifying bank loans.
     """
-    # @TODO: Complete the usability dialog for savings the CSV Files.
-    # YOUR CODE HERE!
+    # if there are no qualifying loans, print "No qualifying loans and exit"
+    if len(qualifying_loans) == 0:
+        print("No Qualifying loans available, App will exit.")
+        exit
+    # if there are qualifying loans, ask if results need to be saved
+    else:
+        # Ask for saving file if there are qualifying results
+        save_file = questionary.text("There are qualifying loans available, would you like to save the results Yes or No?").ask()
+        save_file = str.lower(save_file)
+        # print(save_file)
 
-    csvpath = Path('qualifying_loans.csv')
-    save_csv(csvpath, qualifying_loans)
+        # If user does not want to save files, exit
+        if save_file != "yes":
+            exit
+        # If user wants to save files, prompt where they would like to save the files
+        else:
+            # Determine file path for new file
+            csvpath = questionary.text("Enter file path where to save the file:").ask()
+            csvpath = Path(csvpath)
+            if not csvpath.exists():
+                sys.exit(f"Oops! Can't find this path: {csvpath}")
+            
+            # Determin file name for qualifying loan list
+            file_name = questionary.text("Enter file name for qualifying loan list (No file extention necessary):").ask()
+            file_name = file_name +".csv"
+            # print(file_name)
 
-
-
+            # Save file if user wants to save files
+            csvpath = Path(file_name)
+            save_csv(csvpath, qualifying_loans)
+        
 
 def run():
     """The main function for running the script."""
@@ -133,6 +152,7 @@ def run():
 
     # Save qualifying loans
     save_qualifying_loans(qualifying_loans)
+
 
 
 if __name__ == "__main__":

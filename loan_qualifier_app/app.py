@@ -122,14 +122,14 @@ def save_qualifying_loans(qualifying_loans):
         # If user wants to save files, prompt where they would like to save the files
         else:
             # Determine folder path for new file to be saved in
-            csvpath = questionary.text("Enter folder path where to save the file:").ask()
+            csvpath = questionary.text("Please enter output file path for the to be saved file:").ask()
 #            csvpath = "./" + csvpath + "/"
             csvpath = Path(csvpath)
             if not csvpath.exists():
                 sys.exit(f"Oops! Can't find this path: {csvpath}")
             
             # Determine file name for qualifying loan list
-            file_name = questionary.text("Enter file name for qualifying loan list (No file extention necessary):").ask()
+            file_name = questionary.text("Please enter file name for qualifying loan list (No file extention necessary):").ask()
             file_name = file_name + ".csv"
             
             print(f"File will be available in folder: \{csvpath}\ with file name: {file_name}")

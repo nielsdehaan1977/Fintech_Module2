@@ -111,16 +111,13 @@ def save_qualifying_loans(qualifying_loans):
     # if there are qualifying loans, ask if results need to be saved
     else:
         # Ask for saving file if there are qualifying results
-        save_file = questionary.text("There are qualifying loans available, would you like to save the results YES/NO?").ask()
-        save_file = str.lower(save_file)
+        save_file = questionary.confirm("There are qualifying loans available, would you like to save the results YES/NO?").ask()
 
         # If user does not want to save files, exit
-        if save_file != "yes":
+        if save_file != True:
             # print whatever input user has given (if not yes) and highlight that app exited due to that. If user wants to save rerun process and answer yes when prompted. 
-            save_file = save_file.upper()
-            print(f"Input on previous YES/NO question was '{save_file}'.\
-                 \nTherefor app will exit, no file was saved by app.\
-                 \nPlease rerun application and type yes when prompted to save qualifying loan results.")
+            print(f"app will exit, no file was saved by app.\
+                 \nPlease rerun application and type Y when prompted to save qualifying loan results if results need to be saved.")
             exit
         # If user wants to save files, prompt where they would like to save the files
         else:

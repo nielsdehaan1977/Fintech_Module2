@@ -10,19 +10,15 @@ import sys
 import fire
 import questionary
 from pathlib import Path
-import csv
 
-from qualifier.utils.fileio import load_csv, save_csv
-# from qualifier.utils.save_csv import save_qualifying_loans
-from qualifier.utils.calculators import (
-    calculate_monthly_debt_ratio,
-    calculate_loan_to_value_ratio,
-)
-
+# Import qualifier utils, filters and save_loan_file
+from qualifier.utils.fileio import load_csv
+from qualifier.utils.calculators import (calculate_monthly_debt_ratio, calculate_loan_to_value_ratio)
 from qualifier.filters.max_loan_size import filter_max_loan_size
 from qualifier.filters.credit_score import filter_credit_score
 from qualifier.filters.debt_to_income import filter_debt_to_income
 from qualifier.filters.loan_to_value import filter_loan_to_value
+from qualifier.utils.save_loan_file import save_qualifying_loans
 
 def load_bank_data():
     """Ask for the file path to the latest banking data and load the CSV file.
@@ -30,12 +26,11 @@ def load_bank_data():
     Returns:
         The bank data from the data rate sheet CSV file.
     """
-
     csvpath = questionary.text("Enter a file path to a rate-sheet (.csv):").ask()
     csvpath = Path(csvpath)
     if not csvpath.exists():
         sys.exit(f"Oops! Can't find this path: {csvpath}")
-
+    
     return load_csv(csvpath)
 
 def get_applicant_info():
@@ -79,7 +74,6 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
         A list of the banks willing to underwrite the loan.
 
     """
-
     # Calculate the monthly debt ratio
     monthly_debt_ratio = calculate_monthly_debt_ratio(debt, income)
     print(f"The monthly debt to income ratio is {monthly_debt_ratio:.02f}")
@@ -98,47 +92,6 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
 
     return bank_data_filtered
 
-def save_qualifying_loans(qualifying_loans):
-    """Saves the qualifying loans to a CSV file.
-
-    Args:
-        qualifying_loans (list of lists): The qualifying bank loans.
-    """
-    # if there are no qualifying loans, print "No qualifying loans" and exit save qualifying loans 
-    if len(qualifying_loans) == 0:
-        print("No Qualifying loans available, App will exit. No file was saved. ")
-        exit
-    # if there are qualifying loans, ask if results need to be saved
-    else:
-        # Ask for saving file if there are qualifying results
-        save_file = questionary.confirm("There are qualifying loans available, would you like to save the results YES/NO?").ask()
-
-        # If user does not want to save files, exit
-        if save_file != True:
-            # print whatever input user has given (if not yes) and highlight that app exited due to that. If user wants to save rerun process and answer yes when prompted. 
-            print(f"app will exit, no file was saved by app.\
-                 \nPlease rerun application and type Y when prompted to save qualifying loan results if results need to be saved.")
-            exit
-        # If user wants to save files, prompt where they would like to save the files
-        else:
-            # Determine folder path for new file to be saved in
-            csvpath = questionary.text("Please enter output file path for the to be saved file:").ask()
-#            csvpath = "./" + csvpath + "/"
-            csvpath = Path(csvpath)
-            if not csvpath.exists():
-                sys.exit(f"Oops! Can't find this path: {csvpath}")
-            
-            # Determine file name for qualifying loan list
-            file_name = questionary.text("Please enter file name for qualifying loan list (No file extention necessary):").ask()
-            file_name = file_name + ".csv"
-            
-            print(f"File will be available in folder: \{csvpath}\ with file name: {file_name}")
-
-            # Save file if user wants to save files in determined location and with determined file name
-            csvpath = Path(csvpath, file_name)
-            save_csv(csvpath, qualifying_loans)
-        
-
 def run():
     """The main function for running the script."""
 
@@ -155,8 +108,6 @@ def run():
 
     # Save qualifying loans
     save_qualifying_loans(qualifying_loans)
-
-
 
 if __name__ == "__main__":
     fire.Fire(run)

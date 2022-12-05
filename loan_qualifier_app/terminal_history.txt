@@ -1,26 +1,3 @@
-    1  git config --global user.name "nielsdehaan"
-    2  $ git config --global user.name
-    3  git config --global user.name
-    4  git config --global user.email "nlsdhn@gmail.com"
-    5  git config --global user.email
-    6  ls -al ~/.shh
-    7  ls -al ~/.ssh
-    8  ssh-keygen -t rsa -b 4096 -C "nlsdhn@gmail.com"
-    9  eval "$(ssh-agent -s)"
-   10  ssh-add ~/.ssh/id_rsa
-   11  clip < ~/.shh/id_ras.pub
-   12  clip < ~/.shh/id_rsa.pub
-   13  clip < ~/.ssh/id_rsa.pub
-   14  ssh -T git@github.com
-   15  ssh -T git@github.com
-   16  clip < ~/.ssh/id_rsa.pub
-   17  ssh -T git@github.com
-   18  conda --version
-   19  conda --version
-   20  conda update conda
-   21  conda --version
-   22  conda activate deve
-   23  conda activate dev
    24  --envs
    25  conda info --envs
    26  C:\Users\niels\anaconda3 conda activate dev
@@ -62,56 +39,12 @@
    62  cd github_upload
    63  cd fintech_module2
    64  cd loan_qualifier_app
-   65  python app.py
+   65  ls
    66  python app.py
    67  python app.py
-   68  git status
-   69  git add -A
-   70  git commit -m "Working and tested application"
-   71  git status
-   72  git push
-   73  python app.py
-   74  python app.py
-   75  python app.py
-   76  python app.py
-   77  python app.py
-   78  python app.py
-   79  python app.py
-   80  python app.py
-   81  git status
-   82  git add -A
-   83  git status
-   84  git commit -m " changed questionary.text to questionry.confirm in def save_qualifying_loans as requested in challenge."
-   85  git status
-   86  git push
-   87  git push
-   88  python app.py
-   89  python app.py
-   90  git add -
-   91  git add -A
-   92  git commit -m "Minor language updates in questionary questions"
-   93  git status
-   94  git push
-   95  git status
-   96  git add -A
-   97  git status
-   98  git commit -m "Updated README.md file and added images folder to display CLI prompts"
-   99  git status
-  100  git push
-  101  git status
-  102  git add -A
-  103  git status
-  104  git commit -m "changed README.md file and move image to see if it can be displayed in github this way"
-  105  git status
-  106  git push
-  107  git status
-  108  git add -A
-  109  git commit -m "Updated README.md file with incorporated CLI screenshot."
-  110  git push
-  111  git status
-  112  git push
-  113  git pull
-  114  git status
-  115  git push
-  116  history 50 . terminal_history.txt
-  117  history > terminal_history.txt
+   68  python app.py
+   69  python app.py
+   70  python app.py
+   71  python app.py
+   72  python app.py
+   73  history 50 > terminal_history.txt

@@ -22,9 +22,7 @@ def save_qualifying_loans(qualifying_loans):
         # If user does not want to save files, exit
         if save_file != True:
             # print whatever input user has given (if not yes) and highlight that app exited due to that. If user wants to save rerun process and answer yes when prompted. 
-            print(f"app will exit, no file was saved by app.\
-                 \nPlease rerun application and type Y when prompted to save qualifying loan results if results need to be saved.")
-            exit
+            sys.exit(f"App will exit, no file was saved by app. Please rerun application and type Y when prompted to save qualifying loan results if results need to be saved.")
         # If user wants to save files, prompt where they would like to save the files
         else:
             # Determine folder path for new file to be saved in
